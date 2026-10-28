@@ -1,0 +1,1000 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Trending USA | Viral News & Videos</title>
+<meta name="description" content="Discover trending stories, viral videos, and popular moments across America.">
+<meta name="theme-color" content="#ffffff">
+
+<style>
+:root {
+    --blue: #173b70;
+    --red: #e32636;
+    --text: #202633;
+    --muted: #687386;
+    --border: #e5e7eb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff;
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+#particles {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: .5;
+}
+
+header,
+main,
+footer,
+.topbar,
+.ticker {
+    position: relative;
+    z-index: 1;
+}
+
+/* TOP BAR */
+
+.topbar {
+    background: #f5f7fa;
+    border-bottom: 1px solid var(--border);
+    padding: 8px 5%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.topbar strong {
+    color: var(--blue);
+}
+
+/* HEADER */
+
+header {
+    background: rgba(255,255,255,.97);
+    border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+    max-width: 1150px;
+    margin: auto;
+    padding: 19px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 900;
+    color: var(--blue);
+    letter-spacing: -1px;
+    line-height: 1.2;
+}
+
+.logo span,
+.footer-logo span {
+    color: var(--red);
+}
+
+.logo small {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: #263348;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--red);
+}
+
+/* TRENDING TICKER */
+
+.ticker {
+    background: var(--blue);
+    color: white;
+    padding: 10px 5%;
+    font-size: 12px;
+}
+
+.ticker strong {
+    background: var(--red);
+    padding: 5px 9px;
+    margin-right: 10px;
+}
+
+/* MAIN */
+
+.container {
+    max-width: 1050px;
+    width: 92%;
+    margin: 30px auto;
+}
+
+.section-heading {
+    font-size: 21px;
+    font-weight: 800;
+    border-left: 4px solid var(--red);
+    padding-left: 12px;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: -12px;
+    margin-bottom: 22px;
+}
+
+/* FEATURED NEWS */
+
+.featured {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 22px;
+    margin-bottom: 35px;
+}
+
+.featured-main {
+    min-height: 430px;
+    border-radius: 8px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: white;
+    background:
+        linear-gradient(
+            0deg,
+            rgba(10,23,43,.98) 0%,
+            rgba(10,23,43,.65) 45%,
+            rgba(10,23,43,.08) 100%
+        ),
+        linear-gradient(135deg, #a8c5e5, #315985);
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-main::before {
+    content: "USA";
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 75px;
+    font-weight: 900;
+    color: rgba(255,255,255,.15);
+    pointer-events: none;
+}
+
+/* FIRST NATIVE BANNER INSIDE BLUE BOX */
+
+.native-inside-feature {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    min-height: 90px;
+    margin-bottom: 22px;
+    padding: 10px;
+    text-align: center;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.native-inside-feature .ads-label {
+    color: rgba(255,255,255,.75);
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+/* FEATURED TEXT */
+
+.badge {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 5px 9px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+    align-self: flex-start;
+    position: relative;
+    z-index: 1;
+}
+
+.featured-main h1 {
+    font-size: clamp(25px, 3.5vw, 35px);
+    line-height: 1.25;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.featured-main p {
+    font-size: 13px;
+    color: #eef3fa;
+    position: relative;
+    z-index: 1;
+}
+
+.featured-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.story {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 17px;
+    transition: .2s;
+}
+
+.story:hover {
+    border-color: #c8d4e5;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 16px rgba(0,0,0,.05);
+}
+
+.category {
+    display: block;
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--red);
+    letter-spacing: .7px;
+    margin-bottom: 5px;
+}
+
+.story h3 {
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+
+.story p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* SECOND NATIVE BANNER */
+
+.video-native-ad {
+    width: 100%;
+    min-height: 90px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 10px;
+    margin: 25px 0 35px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.ads-label {
+    color: #9299a5;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+/* NEWS GRID */
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 35px;
+}
+
+.news-card {
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    overflow: hidden;
+    background: white;
+    transition: .2s;
+}
+
+.news-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,.06);
+}
+
+.news-visual {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    background: linear-gradient(135deg, #edf3fa, #d9e5f3);
+}
+
+.news-body {
+    padding: 17px;
+}
+
+.news-body h3 {
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 9px;
+}
+
+.news-body p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.article-meta {
+    margin-top: 12px;
+    font-size: 10px;
+    color: #8993a3;
+}
+
+/* VIDEO SECTION */
+
+.video-section {
+    margin: 45px 0;
+}
+
+.video-intro {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+.video-layout {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 25px;
+    align-items: center;
+}
+
+.video-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #d8e5f4, #7899c0);
+    border: 1px solid var(--border);
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.video-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,.25);
+}
+
+.play-button {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5px;
+    background: var(--red);
+    color: white;
+    text-decoration: none;
+    font-size: 29px;
+    box-shadow: 0 0 0 9px rgba(255,255,255,.25);
+    transition: transform .2s, background .2s;
+}
+
+.play-button:hover {
+    transform: scale(1.1);
+    background: #b81728;
+}
+
+.video-copy h2 {
+    font-size: clamp(21px, 3vw, 28px);
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.video-copy p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+.watch-button {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    padding: 11px 20px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background .2s;
+}
+
+.watch-button:hover {
+    background: #b81728;
+}
+
+/* HISTATS */
+
+.histats-section {
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 25px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #f5f7fa;
+    border-top: 1px solid var(--border);
+    padding: 30px 20px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.footer-logo {
+    font-size: 23px;
+    font-weight: 900;
+    color: var(--blue);
+    margin-bottom: 8px;
+}
+
+footer p {
+    margin-top: 6px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 720px) {
+    .header-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .featured,
+    .video-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .featured-main {
+        min-height: 430px;
+        padding: 20px;
+    }
+
+    .featured-main::before {
+        font-size: 60px;
+    }
+
+    .native-inside-feature {
+        margin-bottom: 20px;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .news-visual {
+        height: 180px;
+    }
+
+    .topbar {
+        justify-content: center;
+    }
+
+    .play-button {
+        width: 62px;
+        height: 62px;
+        font-size: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+    <span><strong>TRENDING USA</strong> | Viral News & Videos</span>
+    <span id="currentDate"></span>
+</div>
+
+<!-- HEADER -->
+
+<header>
+    <div class="header-inner">
+
+        <div class="logo">
+            TRENDING<span>USA</span>
+            <small>VIRAL VIDEOS • LATEST STORIES</small>
+        </div>
+
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#trending">TRENDING</a>
+            <a href="#stories">USA NEWS</a>
+            <a href="#videos">VIRAL VIDEOS</a>
+        </nav>
+
+    </div>
+</header>
+
+<!-- TRENDING TICKER -->
+
+<div class="ticker">
+    <strong>TRENDING NOW</strong>
+    Viral moments, internet sensations, and stories everyone is talking about.
+</div>
+
+<main class="container" id="home">
+
+    <!-- TRENDING IN AMERICA -->
+
+    <section id="trending">
+
+        <h2 class="section-heading">Trending in America</h2>
+
+        <p class="section-description">
+            Discover interesting stories and viral moments from across the internet.
+        </p>
+
+        <!-- FEATURED BOX WITH FIRST NATIVE BANNER INSIDE -->
+
+        <div class="featured">
+
+            <article class="featured-main">
+
+                <!-- NATIVE BANNER 1 -->
+
+                <div class="native-inside-feature">
+
+                    <div class="ads-label">ADVERTISEMENT</div>
+
+                    <script
+                        data-cfasync="false"
+                        async
+                        type="text/javascript"
+                        src="https://qw.rolledipocras.com/tiTtAiKEeLuZ/151239">
+                    </script>
+
+                </div>
+
+                <!-- FEATURED HEADLINE -->
+
+                <span class="badge">VIRAL SPOTLIGHT</span>
+
+                <h1>The Internet Can't Stop Talking About These Viral Moments</h1>
+
+                <p>
+                    From unexpected public moments to heartwarming real-life
+                    stories, online videos continue to capture the attention
+                    of audiences across the United States.
+                </p>
+
+            </article>
+
+            <!-- SIDE STORIES -->
+
+            <div class="featured-list">
+
+                <article class="story">
+                    <span class="category">INTERNET CULTURE</span>
+
+                    <h3>Why Everyday Moments Can Become Internet Sensations</h3>
+
+                    <p>
+                        Ordinary moments sometimes become popular when viewers
+                        find them surprising, funny, or relatable.
+                    </p>
+                </article>
+
+                <article class="story">
+                    <span class="category">VIRAL VIDEOS</span>
+
+                    <h3>Unexpected Reactions Are Capturing Online Attention</h3>
+
+                    <p>
+                        Authentic reactions and surprising scenes continue
+                        to inspire conversations on social media.
+                    </p>
+                </article>
+
+                <article class="story">
+                    <span class="category">SOCIAL MEDIA</span>
+
+                    <h3>The Short Videos Keeping Viewers Watching</h3>
+
+                    <p>
+                        Quick storytelling and memorable moments remain
+                        popular features of online entertainment.
+                    </p>
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- LATEST STORIES -->
+
+    <section id="stories">
+
+        <h2 class="section-heading">Latest Viral Stories</h2>
+
+        <p class="section-description">
+            Real-life moments, digital trends, and stories people love to share.
+        </p>
+
+        <div class="news-grid">
+
+            <article class="news-card">
+
+                <div class="news-visual">📱</div>
+
+                <div class="news-body">
+                    <span class="category">SOCIAL MEDIA</span>
+
+                    <h3>How a Short Video Can Reach Millions of People</h3>
+
+                    <p>
+                        A compelling opening, a relatable situation, and
+                        a surprising ending can help a video reach a wider audience.
+                    </p>
+
+                    <div class="article-meta">INTERNET CULTURE</div>
+                </div>
+
+            </article>
+
+            <article class="news-card">
+
+                <div class="news-visual">😲</div>
+
+                <div class="news-body">
+                    <span class="category">UNEXPECTED MOMENTS</span>
+
+                    <h3>The Surprising Moments That Make People Hit Share</h3>
+
+                    <p>
+                        Unexpected encounters and genuine reactions often
+                        inspire conversations across online communities.
+                    </p>
+
+                    <div class="article-meta">TRENDING STORIES</div>
+                </div>
+
+            </article>
+
+            <article class="news-card">
+
+                <div class="news-visual">🌎</div>
+
+                <div class="news-body">
+                    <span class="category">ONLINE TRENDS</span>
+
+                    <h3>Why People Love Watching Real-Life Stories Online</h3>
+
+                    <p>
+                        Heartwarming acts and unbelievable coincidences
+                        give audiences something memorable to share.
+                    </p>
+
+                    <div class="article-meta">VIRAL CULTURE</div>
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- NATIVE BANNER 2 -->
+
+    <div class="video-native-ad">
+
+        <div class="ads-label">ADVERTISEMENT</div>
+
+        <div id="native-ad-script-slot">
+
+            <script
+                data-cfasync="false"
+                async
+                type="text/javascript"
+                src="https://ju.bionomysolera.com/tKxL7nY316cl3r5/155722">
+            </script>
+
+        </div>
+
+    </div>
+
+    <!-- FEATURED VIDEO -->
+
+    <section class="video-section" id="videos">
+
+        <h2 class="section-heading">Watch the Viral Video</h2>
+
+        <p class="video-intro">
+            Curious to see the full story? Click below to continue watching.
+        </p>
+
+        <div class="video-layout">
+
+            <div class="video-card">
+
+                <img
+                    class="video-thumbnail"
+                    src="https://cdn.aceimg.com/HuHWwTAiR.jpg"
+                    alt="Featured video thumbnail"
+                    loading="lazy"
+                >
+
+                <div class="video-overlay">
+
+                    <a
+                        class="play-button"
+                        href="https://uplcm.com/4/11983217"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Watch the video"
+                    >▶</a>
+
+                </div>
+
+            </div>
+
+            <div class="video-copy">
+
+                <span class="category">FEATURED VIDEO</span>
+
+                <h2>Watch the Featured Video</h2>
+
+                <p>
+                    Click the play button to continue to the video page.
+                </p>
+
+                <a
+                    class="watch-button"
+                    href="https://uplcm.com/4/11983217"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >▶ &nbsp; Watch Now →</a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <p style="font-size:11px;color:#8993a3;margin-bottom:25px;">
+        Editorial note: The stories on this demo page are illustrative examples
+        and are not verified reports of current trending events.
+    </p>
+
+    <!-- HISTATS COUNTER -->
+
+    <div class="histats-section">
+        <div id="histats_counter"></div>
+
+        <noscript>
+            <a href="/" target="_blank" rel="noopener noreferrer">
+                <img
+                    src="https://sstatic1.histats.com/0.gif?5044778&101"
+                    alt="Website visitor statistics"
+                    style="border:0;"
+                >
+            </a>
+        </noscript>
+    </div>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-logo">
+        TRENDING<span>USA</span>
+    </div>
+
+    <p>Discover What's Trending Across America.</p>
+
+    <p>
+        &copy; <span id="year"></span> Trending USA. All rights reserved.
+    </p>
+
+</footer>
+
+<!-- HISTATS TRACKING -->
+
+<script type="text/javascript">
+var _Hasync = _Hasync || [];
+
+_Hasync.push([
+    'Histats.start',
+    '1,5044778,4,8,210,40,00011111'
+]);
+
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+
+(function() {
+    var hs = document.createElement('script');
+    hs.type = 'text/javascript';
+    hs.async = true;
+    hs.src = 'https://s10.histats.com/js15_as.js';
+
+    (
+        document.getElementsByTagName('head')[0] ||
+        document.getElementsByTagName('body')[0]
+    ).appendChild(hs);
+})();
+</script>
+
+<!-- PARTICLE ANIMATION -->
+
+<script>
+document.getElementById("currentDate").textContent =
+    new Date().toLocaleDateString("en-US", {
+        weekday: "short",
+        year: "numeric",
+        month: "short",
+        day: "numeric"
+    });
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+let particles = [];
+let width = 0;
+let height = 0;
+
+function resizeCanvas() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    width = window.innerWidth;
+    height = window.innerHeight;
+
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const count = Math.min(
+        55,
+        Math.max(20, Math.floor(width / 22))
+    );
+
+    particles = [];
+
+    for (let i = 0; i < count; i++) {
+        particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            r: Math.random() * 2 + 0.5,
+            dx: (Math.random() - 0.5) * 0.35,
+            dy: (Math.random() - 0.5) * 0.35
+        });
+    }
+}
+
+function animateParticles() {
+    ctx.clearRect(0, 0, width, height);
+
+    particles.forEach((p, i) => {
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if (p.x < 0 || p.x > width) p.dx *= -1;
+        if (p.y < 0 || p.y > height) p.dy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+
+        ctx.fillStyle = "rgba(23, 59, 112, 0.22)";
+        ctx.fill();
+
+        for (let j = i + 1; j < particles.length; j++) {
+            const q = particles[j];
+
+            const dx = p.x - q.x;
+            const dy = p.y - q.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < 95) {
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(q.x, q.y);
+
+                ctx.strokeStyle =
+                    `rgba(23, 59, 112, ${0.07 * (1 - distance / 95)})`;
+
+                ctx.lineWidth = 0.7;
+                ctx.stroke();
+            }
+        }
+    });
+
+    requestAnimationFrame(animateParticles);
+}
+
+window.addEventListener("resize", resizeCanvas);
+
+resizeCanvas();
+animateParticles();
+</script>
+
+</body>
+</html>
